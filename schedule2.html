@@ -1,91 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hans Heim | Schedule</title>
-    <style>
-        body {
-            background-color: #000000;
-            color: #00ff33;
-            font-family: 'Courier New', Courier, monospace;
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-        h1, h2 {
-            color: #33ff66;
-            text-shadow: 0 0 5px #00ff33;
-            border-bottom: 1px solid #00ff33;
-            padding-bottom: 5px;
-        }
-        a {
-            color: #00ff33;
-            text-decoration: none;
-            border: 1px solid #00ff33;
-            padding: 4px 10px;
-            display: inline-block;
-        }
-        a:hover {
-            background-color: #00ff33;
-            color: #000000;
-            box-shadow: 0 0 10px #00ff33;
-        }
-        /* Matrix Table Styling */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #00ff33;
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background-color: rgba(0, 255, 51, 0.1);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Schedule | Hans Heim</title>
+
+<style>
+
+body {
+    margin: 0;
+    padding: 40px 20px;
+    background: #0f172a;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    max-width: 1400px;
+    margin: auto;
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: 80px repeat(5, 1fr);
+    background: #111827;
+    border: 1px solid #374151;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.time-column,
+.day-column {
+    position: relative;
+    height: 520px;
+}
+
+.day-column {
+    border-left: 1px solid #374151;
+}
+
+.day-header,
+.time-header {
+    height: 50px;
+    background: #1e293b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-bottom: 1px solid #374151;
+}
+
+.time-slot {
+    height: 52px;
+    border-bottom: 1px solid #374151;
+    color: #94a3b8;
+    padding-top: 4px;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+.day-column::after {
+    content: "";
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image:
+        repeating-linear-gradient(
+            to bottom,
+            transparent,
+            transparent 51px,
+            #374151 52px
+        );
+    pointer-events: none;
+}
+
+.course {
+    position: absolute;
+    left: 8px;
+    right: 8px;
+    border-radius: 12px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    z-index: 10;
+
+    border: 2px solid rgba(255,255,255,0.25);
+
+    box-shadow: 0 4px 12px rgba(0,0,0,.25);
+
+    transition: transform 0.2s ease;
+}
+
+.course:hover {
+    transform: translateY(-2px);
+}
+
+.course strong {
+    font-size: 1rem;
+}
+
+.course span {
+    margin-top: 4px;
+    font-size: 0.9rem;
+}
+
+.ldm860 {
+    background: #14b8a6;
+}
+
+.ops345nce {
+    background: #6366f1;
+}
+
+.ops345nbb {
+    background: #f97354;
+}
+
+.mst100 {
+    background: #f4b731;
+}
+
+@media (max-width: 1000px) {
+
+    .schedule-grid {
+        overflow-x: auto;
+        min-width: 900px;
+    }
+
+}
+
+</style>
 </head>
+
 <body>
 
-    <header>
-        <h1>[ SYSTEM SCHEDULE ]</h1>
-        <nav>
-            <a href="index.html">< RETURN TO MAIN</a>
-        </nav>
-    </header>
+<div class="container">
 
-    <main>
-        <h2>// TIME ALLOCATIONS</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>DAY</th>
-                    <th>CYCLE TIME</th>
-                    <th>ASSIGNED TASK</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>MONDAY</td>
-                    <td>0900 - 1200</td>
-                    <td>Deep Coding Protocols</td>
-                </tr>
-                <tr>
-                    <td>WEDNESDAY</td>
-                    <td>1400 - 1600</td>
-                    <td>Network Maintenance</td>
-                </tr>
-                <tr>
-                    <td>FRIDAY</td>
-                    <td>1300 - 1500</td>
-                    <td>System Review & Commit</td>
-                </tr>
-            </tbody>
-        </table>
-    </main>
+    <div class="schedule-grid">
+
+        <!-- TIME COLUMN -->
+
+        <div class="time-column">
+
+            <div class="time-header"></div>
+
+            <div class="time-slot">8:00</div>
+            <div class="time-slot">9:00</div>
+            <div class="time-slot">10:00</div>
+            <div class="time-slot">11:00</div>
+            <div class="time-slot">12:00</div>
+            <div class="time-slot">13:00</div>
+            <div class="time-slot">14:00</div>
+            <div class="time-slot">15:00</div>
+            <div class="time-slot">16:00</div>
+
+        </div>
+
+        <!-- MONDAY -->
+
+        <div class="day-column">
+
+            <div class="day-header">Monday</div>
+
+            <div class="course ldm860"
+                 style="top:50px;height:139px;">
+
+                <strong>LDM860</strong>
+                <span>8:00 - 10:40</span>
+
+            </div>
+
+            <div class="course ops345nce"
+                 style="top:336px;height:91px;">
+
+                <strong>OPS345NCE</strong>
+                <span>13:30 - 15:15</span>
+
+            </div>
+
+        </div>
+
+        <!-- TUESDAY -->
+
+        <div class="day-column">
+
+            <div class="day-header">Tuesday</div>
+
+            <div class="course mst100"
+                 style="top:336px;height:91px;">
+
+                <strong>MST100NBB</strong>
+                <span>13:30 - 15:15</span>
+
+            </div>
+
+        </div>
+
+        <!-- WEDNESDAY -->
+
+        <div class="day-column">
+
+            <div class="day-header">Wednesday</div>
+
+            <div class="course ops345nce"
+                 style="top:145px;height:91px;">
+
+                <strong>OPS345NCE</strong>
+                <span>9:50 - 11:35</span>
+
+            </div>
+
+            <div class="course ops345nbb"
+                 style="top:336px;height:91px;">
+
+                <strong>OPS345NBB</strong>
+                <span>13:30 - 15:15</span>
+
+            </div>
+
+        </div>
+
+        <!-- THURSDAY -->
+
+        <div class="day-column">
+
+            <div class="day-header">Thursday</div>
+
+            <div class="course ops345nbb"
+                 style="top:106px;height:91px;">
+
+                <strong>OPS345NBB</strong>
+                <span>8:55 - 10:40</span>
+
+            </div>
+
+            <div class="course mst100"
+                 style="top:246px;height:91px;">
+
+                <strong>MST100NBB</strong>
+                <span>11:40 - 13:25</span>
+
+            </div>
+
+        </div>
+
+        <!-- FRIDAY -->
+
+        <div class="day-column">
+
+            <div class="day-header">Friday</div>
+
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 </html>
