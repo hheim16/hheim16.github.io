@@ -44,6 +44,16 @@
             font-size: 0.8rem;
             opacity: 0.7;
         }
+        /* Responsive Image Styling */
+        .profile-pic {
+            max-width: 100%;       /* Prevents the image from ever overflowing the screen */
+            width: 250px;          /* Sets a neat standard size on desktop */
+            height: auto;          /* Maintains the image's original proportions */
+            border: 2px solid #00ff33; /* Gives it a matching green Matrix border */
+            box-shadow: 0 0 10px #00ff33; /* Adds a clean digital glow */
+            margin-bottom: 20px;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -71,6 +81,8 @@
 
     <hr>
 
+    <img src="HansPic.png" alt="Hans" class="profile-pic">
+    
     <footer>
         <p>Hans Heim. © 2026.</p>
     </footer>
